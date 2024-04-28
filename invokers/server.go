@@ -27,9 +27,5 @@ func ApiServer(lc fx.Lifecycle, api providers.IApi) *gin.Engine {
 
 func InitRoutes(engine *gin.Engine, api providers.IApi) {
 
-	engine.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"data": "v0.0.1",
-		})
-	})
+	engine.GET("/", api.Home)
 }
